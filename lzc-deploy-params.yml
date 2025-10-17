@@ -1,0 +1,32 @@
+params:
+  - id: auth_bcrypt_hash
+    type: string
+    name: "auth bcrypt hash"
+    default_value: "$$2a$$10$1THnuA82saNkEnWsHCNlMe4HVCIfcKYtqlNRa/WQFjHTMHXN/TqCq"
+    description: "the auth password,crpyt with bcrypt hash，default value is the hash of word `admin`"
+
+  - id: brand_title
+    type: string
+    name: "brand title"
+    default_value: "File Management"
+    description: "the brand title to display in the app"
+
+  - id: footer_text
+    type: string
+    name: "footer text"
+    default_value: "Powered by Lazycat.cloud"
+    description: "the footer text to display in the app"
+
+locales:
+  zh:
+    auth_bcrypt_hash:
+      name: "认证密码bcrypt hash"
+      description: "认证密码使用bcrypt加密的hash值。默认值为 `admin` 的 bcrypt hash 值。"
+
+    brand_title:
+      name: "网站标题"
+      description: "在网站首页显示的网站标题。"
+
+    footer_text:
+      name: "页脚文本"
+      description: "在应用中显示的页脚文本。"
