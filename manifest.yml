@@ -22,7 +22,7 @@ services:
       - SESSION_SECRET={{ stable_secret "session#fp_secret" }}
       - AUTH_BCRYPT_HASH=$$2a$$10$1THnuA82saNkEnWsHCNlMe4HVCIfcKYtqlNRa/WQFjHTMHXN/TqCq
       - MAX_UPLOAD_MB=100
-      - BASE_URL=https://{{.U.AppDomain}}
+      - BASE_URL=https://{{.S.AppDomain}}
       - BRAND_TITLE={{.U.brand_title}}
       - FOOTER_TEXT={{.U.footer_text}}
       - RATE_LIMIT_WINDOW_MS=900000
