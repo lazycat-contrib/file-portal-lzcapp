@@ -1,0 +1,14 @@
+package: cloud.lazycat.app.file-portal
+version: 0.1.0
+name: File Management Portal
+description: "一个简单的基于 Web 的文件上传器"
+min_os_version: "1.5.0"
+homepage: https://github.com/iAmSaugata/file-portal
+author: iAmSaugata
+locales:
+  zh:
+    description: "一个简单的基于 Web 的文件上传器"
+    name: "文件管理门户"
+  en:
+    description: "A simple web-based File Uploader."
+    name: "File Management Portal"

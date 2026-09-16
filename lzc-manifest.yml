@@ -1,0 +1,32 @@
+application:
+  subdomain: file-portal
+  background_task: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://file-portal:8080/
+    - location: /tool
+      backend: file:///lzcapp/pkg/content/
+
+services:
+  file-portal:
+    # upstream: ghcr.io/dockers-x/file-portal:0.1.0
+    image: ghcr.1ms.run/dockers-x/file-portal:0.1.0
+    environment:
+      - PORT=8080
+      - SESSION_SECRET={{ stable_secret "session#fp_secret" }}
+      - AUTH_BCRYPT_HASH={{.U.auth_bcrypt_hash}}
+      - MAX_UPLOAD_MB=100
+      - BASE_URL=https://{{.S.AppDomain}}
+      - BRAND_TITLE={{.U.brand_title}}
+      - FOOTER_TEXT={{.U.footer_text}}
+      - RATE_LIMIT_WINDOW_MS=900000
+      - RATE_LIMIT_MAX=200
+      - DOWNLOAD_RATE_LIMIT_MAX=60
+      - LINK_TTL_MS=86400000 # 24 hours
+      - TRUST_PROXY=1 # Cloudflare / any reverse proxy
+      - UPLOAD_CONCURRENCY=3
+    binds:
+      - /lzcapp/var/uploads:/app/uploads
+      - /lzcapp/var/db:/app/sqlite
